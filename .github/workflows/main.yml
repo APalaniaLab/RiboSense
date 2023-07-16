@@ -38,6 +38,8 @@ jobs:
         run: npm install
       - name: Static HTML export with Nuxt
         run: npm run generate
+      - name: Jekyl skip
+        run: touch .output/public/.nojekyll
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:

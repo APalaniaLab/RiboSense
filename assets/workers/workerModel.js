@@ -3,7 +3,7 @@ import { loadLayersModel, tensor2d } from '@tensorflow/tfjs'
 const models = {detector: null, classifier: null}
 const loadModels = async () => {
   try {
-      models.detector = models.detector == null ? await loadLayersModel("/models/detector-js/model.json") : models.detector
+      models.detector = models.detector == null ? await loadLayersModel("./models/detector-js/model.json") : models.detector
   } catch (e) {
       self.postMessage({
         type: 'error',
@@ -13,7 +13,7 @@ const loadModels = async () => {
   }
 
   try {
-      models.classifier = models.classifier == null ? await loadLayersModel("/models/classifier-js/model.json") : models.classifier
+      models.classifier = models.classifier == null ? await loadLayersModel("./models/classifier-js/model.json") : models.classifier
   } catch (e) {
       self.postMessage({
         type: 'error',
