@@ -214,10 +214,10 @@
           <div class="relative w-full mt-4 md:max-w-md p-4 bg-gray-200 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
             <div class="flex items-center justify-between mb-4">
               <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Enter the sequence manually</h5>
-                <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500" data-tooltip-target="helpInputTooltip" data-tooltip-trigger="click" data-tooltip-placement="bottom">
+                <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500" data-tooltip-target="helpManualInputTooltip" data-tooltip-trigger="click" data-tooltip-placement="bottom">
                     <p> Help?</p>
                 </a>
-                <div id="helpInputTooltip" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-gray-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 w-60">
+                <div id="helpManualInputTooltip" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-gray-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 w-60">
                     <p>Enter the sequence in the textbox and run the tool to generate result for the input sequence.</p>
                 </div>
             </div>
