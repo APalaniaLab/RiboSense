@@ -547,7 +547,7 @@ const annotateSequenceFromInput = async () => {
   }
 
   const non_atgc = /[^ATGC]+/i
-  if (sequenceFromInput.match(non_atgc)) {
+  if (sequenceFromInput.value.match(non_atgc)) {
       errorText.value = "Given input is not a DNA sequence"
   }
 
