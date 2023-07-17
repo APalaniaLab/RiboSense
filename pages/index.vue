@@ -519,6 +519,8 @@ const annotateListOfSequence = async (sequences, customInput) => {
     else
       visualizeRiboswitch(annotate_data)
 
+    errorText.value = ''
+
   } catch (e) {
     errorText.value = typeof e == 'string' ? e : "There was an error processing the selected sequence(s)"
   } finally {
@@ -542,6 +544,11 @@ const annotateSequenceFromInput = async () => {
   if (!sequenceFromInput.value) {
     errorText.value = "No sequence provided"
     return 
+  }
+
+  const non_atgc = /[^ATGC]+/i
+  if (sequenceFromInput.match(non_atgc)) {
+      errorText.value = "Given input is not a DNA sequence"
   }
 
   let sequences = [
