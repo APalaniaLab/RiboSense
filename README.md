@@ -1,63 +1,16 @@
-# Nuxt 3 Minimal Starter
+# RiboSense
+**A web-based ML pipeline for riboswitch annotation.**
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Click [here](https://apalanialab.github.io/riboswitch) for the tool.
 
-## Setup
+# About the tool
+RiboSense is an online web-app tool, which under the hood uses a ML pipeline, to detect and classify riboswitch sequences in the given input. The online tool is created using Vue.js and TailwindCSS as main UI framework, and uses opensource libraries to parse sequencing formats like FASTA, GenBank, and SBOL. Tensorflow.js 2.0 is used for all model prediction in this tool, and is setup to run locally using your PC's CPU resources for the same.
 
-Make sure to install the dependencies:
+The pipeline comprises of two models, one called the **Detector Model** and another called the **Classifier Model**, and both of these are manually chained as follows
+* The given sequence is cropped and padded, and is input to the Detector Model
+* The detector model predicts if the input is a riboswitch sequence
+* If the detector model predicts the input not to be a riboswitch sequence, the pipeline ends and the detctor probability for this prediction is returned along with it.
+* If the detector model predicts the input to be a riboswitch sequence, the input is then proessed and fed to the Classifier Model
+* The Classifier Model predicts out of it's 31 trained riboswitch classes for the input
+* The classifier output, it's prediction probaility along with the detector's prediction probaility is returned.
 
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
