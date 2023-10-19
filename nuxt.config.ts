@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   pages: true,
   ssr: false,
   app: {
-    baseURL: '/riboswitch/',
+    baseURL: '/RiboSense/',
     head: {
       script: [
         {
