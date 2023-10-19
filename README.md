@@ -1,7 +1,7 @@
 # RiboSense
 **A web-based ML pipeline for riboswitch annotation.**
 
-Click [here](https://apalanialab.github.io/riboswitch) for the tool.
+Click [here](https://apalanialab.github.io/RiboSense) for the tool.
 
 # About the tool
 RiboSense is an online web-app tool that utilizes an ML pipeline to detect and classify riboswitch sequences in the provided input. The online tool is created using Vue.js and TailwindCSS as main UI framework, and uses opensource libraries to parse sequencing formats like FASTA, GenBank, and SBOL. Tensorflow.js 2.0 is employed for all model predictions in this tool, and it is set up to run locally using your PC's CPU resources.
