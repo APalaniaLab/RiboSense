@@ -62,9 +62,9 @@
                     <p> Help</p>
                 </a>
                 <div id="helpInputTooltip" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-gray-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 w-60">
-                    <p>Please upload a file containing the DNA sequences of interest. Accepted formats include FASTA, GenBank, and SBOL.</p>
-                    <p>Select either one sequence to process, or you can choose bulk option to run the tool for all sequences in the file</p>
-                    <p class="text-gray-100">Select bulk process with caution, as it will use local PC resources and might take some time depending on your PC specs.</p>
+                    <p>Please upload the file containing the DNA sequence(s) of interest. Accepted formats include FASTA, GenBank, and SBOL.</p>
+                    <p>Single sequence or bulk option is available</p>
+                    <p class="text-gray-100">RiboSense uses local machine resources for running the model on the input sequence(s). </p>
                 </div>
             </div>
             <div class="flex-root">              
@@ -343,7 +343,7 @@
           <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-center">
             <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
               <b>Citation: Vigneshwaran Siva Sankaran, Krittika Narasimhan, Mridula Ganesan, Ashok Palaniappan. RiboSense: web-based pipeline for annotating genomic riboswitches. [submitted].
-                We acknowledge support under Google TRC Compute grant (to A.P.) for developing RiboSense. </b>
+                We acknowledge compute support under Google TRC grant (to A.P.) for developing RiboSense. </b>
             </span>
           </div>
       </footer>
