@@ -566,10 +566,10 @@ const annotateSequenceFromInput = async () => {
 }
 
 useHead({
-  title: 'Riboswitch Sensor Tool - CompBio Lab',
+  title: 'RiboSense: Identifying Riboswitch family of genomic sequences - Systems CompBio Lab @ SASTRA University, India',
   meta: [{
     name: 'description',
-    content: 'An ML tool to detect, classify, and annotate riboswitches'
+    content: 'Tool to detect, classify, and annotate riboswitches'
   }],
   script: [
     {
