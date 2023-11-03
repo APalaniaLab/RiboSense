@@ -9,7 +9,7 @@
             </svg>
             <span class="sr-only">Status</span>
             <div>
-              <span class="font-medium">Riboswitch annotation status</span>
+              <span class="font-medium">Detecting and classifying riboswitches</span>
                 <ul class="mt-1.5 ml-4 list-disc list-inside">
                   <li v-if="!!modelError" class="text-red-800 dark:text-red-400">
                     Annotation tool will not work, as there was an error loading the ML models.
@@ -57,12 +57,12 @@
             </span>
 
             <div class="flex items-center justify-between mb-4">
-              <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Input the DNA sequence</h5>
+              <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Input File</h5>
                 <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500" data-tooltip-target="helpInputTooltip" data-tooltip-trigger="click" data-tooltip-placement="bottom">
                     <p> Help?</p>
                 </a>
                 <div id="helpInputTooltip" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-gray-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 w-60">
-                    <p>You can upload your DNA sequence formats like FASTA, GenBank, etc.</p>
+                    <p>Please upload a file containing the DNA sequences of interest. Accepted formats include FASTA, GenBank, and SBOL.</p>
                     <p>Select either one sequence to process, or you can choose bulk option to run the tool for all sequences in the file</p>
                     <p class="text-gray-100">Select bulk process with caution, as it will use local PC resources and might take some time depending on your PC specs.</p>
                 </div>
@@ -86,7 +86,7 @@
                           <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
                           </svg>
-                          <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                          <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> (or drag and drop).</p>
                           <p class="text-xs text-gray-500 dark:text-gray-400">FASTA, GenBank or SBOL (<b>MAX. 20MB</b>)</p>
                       </div>
                       <input @change="parseUploadedFile" id="dropzone-file" type="file" class="hidden" accept=".fasta,.fa,.gb,.gnk,.sbol"/>
@@ -116,7 +116,7 @@
                       </svg>
                       <span class="sr-only">Info</span>
                       <div>
-                        Unable to parse any sequence from the selected file.
+                        Unable to parse sequences from the file. Please check the file format.
                       </div>
                     </div>
                   </div>
@@ -174,7 +174,7 @@
                     </svg>
                     <span class="sr-only">Info</span>
                     <div>
-                      <span class="font-medium">Batch Process</span> will only list first 50, if any, sequences in browser and remaining result will be available for download as a CSV file.
+                      <span class="font-medium">Batch Process</span> will display the results for the first 50 sequences> If there are > 50 sequences in the input, please download the CSV file for RiboSense's annotation of all the sequences.
                     </div>
                   </div>
 
@@ -213,12 +213,12 @@
           
           <div class="relative w-full mt-4 md:max-w-md p-4 bg-gray-200 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
             <div class="flex items-center justify-between mb-4">
-              <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Enter the sequence manually</h5>
+              <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Paste the raw sequence</h5>
                 <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500" data-tooltip-target="helpManualInputTooltip" data-tooltip-trigger="click" data-tooltip-placement="bottom">
                     <p> Help?</p>
                 </a>
                 <div id="helpManualInputTooltip" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-gray-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 w-60">
-                    <p>Enter the sequence in the textbox and run the tool to generate result for the input sequence.</p>
+                    <p>Paste the sequence in the TextBox and click 'Run RiboSense' to annotate the input sequence.</p>
                 </div>
             </div>
             <div class="flex-root">              
@@ -272,7 +272,7 @@
                           Detector Probability
                       </th>
                       <th scope="col" class="px-6 py-3">
-                          Riboswitch Class
+                          Riboswitch Classifier
                       </th>
                       <th scope="col" class="px-6 py-3">
                           Classifier Probability
@@ -342,7 +342,8 @@
       <footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
           <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-center">
             <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-              This tool was created by <b>Vigneshwaran Siva Sankaran</b>, <b>Krittika Narasimhan</b>, <b>Mridula Ganesan</b> under the supervision of <b>Dr. Ashok Palaniappan</b>
+              Citation: Vigneshwaran Siva Sankaran, Krittika Narasimhan, Mridula Ganesan, Ashok Palaniappan. RiboSense: web-based pipeline for annotating genomic riboswitches. [submitted].
+                We acknowledge support under Google TRC Compute grant for developing RiboSense. 
             </span>
           </div>
       </footer>
