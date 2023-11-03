@@ -33,7 +33,7 @@
                     </li>
                   </span>
                   <li v-else>
-                    Select a file to parse sequences from it
+                    Upload input file of sequence(s) OR enter a sequence string
                   </li>
                   <li v-if="annotationResult.length > 0">
                     Annotated {{ annotationResult.length }} sequence(s)
@@ -213,7 +213,7 @@
           
           <div class="relative w-full mt-4 md:max-w-md p-4 bg-gray-200 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
             <div class="flex items-center justify-between mb-4">
-              <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Paste the raw sequence</h5>
+              <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Paste raw DNA sequence</h5>
                 <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500" data-tooltip-target="helpManualInputTooltip" data-tooltip-trigger="click" data-tooltip-placement="bottom">
                     <p> Help</p>
                 </a>
