@@ -16,17 +16,17 @@
                   </li>
                   <span v-if="Object.keys(availableSequences).length > 0">
                     <li>
-                      Parsed {{ Object.keys(availableSequences).length }} sequences from the selected sequence file.
+                      Parsed {{ Object.keys(availableSequences).length }} sequences from the input file.
                     </li>
 
                     <li v-if="Object.keys(selectedSeqIDs).length < 1">
                       Select sequence(s) to annotate
                     </li>
                     <li v-else-if="Object.keys(selectedSeqIDs).length == 1">
-                      Single sequence annotation is available
+                      Single sequence instance annotation
                     </li>
                     <li v-else>
-                      Batch sequence annotation is available
+                      Batch of sequence instances for annotation
                     </li>
                     <li v-if="lengthClipCount > 0">
                       Clipped {{ lengthClipCount }} sequences base-pair length
@@ -87,7 +87,7 @@
                               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
                           </svg>
                           <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> (or drag and drop).</p>
-                          <p class="text-xs text-gray-500 dark:text-gray-400">(<b>MAX. 20MB</b>)</p>
+                          <p class="text-xs text-gray-500 dark:text-gray-400">(<b>Max. 20MB</b>)</p>
                       </div>
                       <input @change="parseUploadedFile" id="dropzone-file" type="file" class="hidden" accept=".fasta,.fa,.gb,.gnk,.sbol"/>
                   </label>
@@ -566,7 +566,7 @@ const annotateSequenceFromInput = async () => {
 }
 
 useHead({
-  title: 'RiboSense: Identifying Riboswitch family of genomic sequences - Systems CompBio Lab @ SASTRA University, India',
+  title: 'RiboSense: Identifying riboswitches in genomic sequences - Systems CompBio Lab @ SASTRA Deemed University',
   meta: [{
     name: 'description',
     content: 'Tool to detect, classify, and annotate riboswitches'
