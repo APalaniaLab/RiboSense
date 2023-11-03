@@ -343,7 +343,7 @@
           <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-center">
             <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
               <b>Citation: Vigneshwaran Siva Sankaran, Krittika Narasimhan, Mridula Ganesan, Ashok Palaniappan. RiboSense: web-based pipeline for annotating genomic riboswitches. [submitted].
-                We acknowledge support under Google TRC Compute grant (to A.P.) for developing RiboSense. <\b>
+                We acknowledge support under Google TRC Compute grant (to A.P.) for developing RiboSense. </b>
             </span>
           </div>
       </footer>
