@@ -57,9 +57,9 @@
             </span>
 
             <div class="flex items-center justify-between mb-4">
-              <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Input File</h5>
+              <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Input File (FASTA, GenBank, or SBOL) </h5>
                 <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500" data-tooltip-target="helpInputTooltip" data-tooltip-trigger="click" data-tooltip-placement="bottom">
-                    <p> Help?</p>
+                    <p> Help</p>
                 </a>
                 <div id="helpInputTooltip" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-gray-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 w-60">
                     <p>Please upload a file containing the DNA sequences of interest. Accepted formats include FASTA, GenBank, and SBOL.</p>
@@ -87,7 +87,7 @@
                               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
                           </svg>
                           <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> (or drag and drop).</p>
-                          <p class="text-xs text-gray-500 dark:text-gray-400">FASTA, GenBank or SBOL (<b>MAX. 20MB</b>)</p>
+                          <p class="text-xs text-gray-500 dark:text-gray-400">(<b>MAX. 20MB</b>)</p>
                       </div>
                       <input @change="parseUploadedFile" id="dropzone-file" type="file" class="hidden" accept=".fasta,.fa,.gb,.gnk,.sbol"/>
                   </label>
@@ -215,7 +215,7 @@
             <div class="flex items-center justify-between mb-4">
               <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Paste the raw sequence</h5>
                 <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500" data-tooltip-target="helpManualInputTooltip" data-tooltip-trigger="click" data-tooltip-placement="bottom">
-                    <p> Help?</p>
+                    <p> Help</p>
                 </a>
                 <div id="helpManualInputTooltip" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-gray-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 w-60">
                     <p>Paste the sequence in the TextBox and click 'Run RiboSense' to annotate the input sequence.</p>
