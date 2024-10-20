@@ -3,8 +3,9 @@ import { loadLayersModel, tensor2d } from '@tensorflow/tfjs'
 const models = {detector: null, classifier: null}
 const loadModels = async () => {
   try {
-      models.detector = models.detector == null ? await loadLayersModel("../models/detector-js/model.json") : models.detector
+      models.detector = models.detector == null ? await loadLayersModel("/models/detector-js/model.json") : models.detector
   } catch (e) {
+      console.error("Unable to load detector model", e)
       self.postMessage({
         type: 'error',
         data: "Unable to load the detector model. Annotation tool will not work."
@@ -13,8 +14,9 @@ const loadModels = async () => {
   }
 
   try {
-      models.classifier = models.classifier == null ? await loadLayersModel("../models/classifier-js/model.json") : models.classifier
+      models.classifier = models.classifier == null ? await loadLayersModel("/models/classifier-js/model.json") : models.classifier
   } catch (e) {
+      console.error("Unable to load classifier model", e)
       self.postMessage({
         type: 'error',
         data: "Unable to load the classifier model. Annotation tool will not work."

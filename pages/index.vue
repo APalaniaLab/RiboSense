@@ -47,8 +47,8 @@
               </ul>
             </div>
           </div>
-
-          <div class="relative w-full md:max-w-md p-4 bg-gray-200 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+          <div class="flex flex-col gap-4 p-4 bg-gray-200 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+            <div class="relative w-full md:max-w-md ">
             <span :class="{hidden: !loadingText}" class="bg-blue-200 text-xs font-medium text-blue-800 text-center p-2 rounded-md dark:bg-blue-900 dark:text-blue-200 absolute -translate-y-1/2 translate-x-1/2 left-auto top-0 right-0">
               <div role="status">
                   <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/><path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/></svg>
@@ -56,21 +56,21 @@
               </div>
             </span>
 
-            <div class="flex items-center justify-between mb-4">
-              <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Input File (FASTA, GenBank, or SBOL) </h5>
+              <div class="flex items-center justify-between mb-4">
+                <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Input File (FASTA, GenBank, or SBOL) </h5>
                 <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500" data-tooltip-target="helpInputTooltip" data-tooltip-trigger="click" data-tooltip-placement="bottom">
-                    <p> Help</p>
+                  <p> Help</p>
                 </a>
                 <div id="helpInputTooltip" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-gray-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 w-60">
-                    <p>Please upload the file containing the DNA sequence(s) of interest. Accepted formats include FASTA, GenBank, and SBOL.</p>
-                    <p>Single sequence or bulk option is available</p>
-                    <p class="text-gray-100">RiboSense uses local machine resources for running the model on the input sequence(s). </p>
+                  <p>Please upload the file containing the DNA sequence(s) of interest. Accepted formats include FASTA, GenBank, and SBOL.</p>
+                  <p>Single sequence or bulk option is available</p>
+                  <p class="text-gray-100">RiboSense uses local machine resources for running the model on the input sequence(s). </p>
                 </div>
-            </div>
-            <div class="flex-root">              
-              <div class="flex items-center justify-center w-full flex-wrap gap-y-2">
-                <div class="w-full mb-4" v-if="!!errorText || !!modelError">
-                  <div class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-600 dark:text-red-400" role="alert">
+              </div>
+              <div class="flex-root">
+                <div class="flex items-center justify-center w-full flex-wrap gap-y-2">
+                  <div class="w-full mb-4" v-if="!!errorText || !!modelError">
+                    <div class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-600 dark:text-red-400" role="alert">
                       <svg class="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
                       </svg>
@@ -79,21 +79,21 @@
                         {{ errorText || modelError}}
                       </div>
                     </div>
-                </div>
-                <div class="w-full" id="file-selector" v-if="!filename">
-                  <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                  </div>
+                  <div class="w-full" id="file-selector" v-if="!filename">
+                    <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                       <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                          <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-                          </svg>
-                          <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> (or drag and drop).</p>
-                          <p class="text-xs text-gray-500 dark:text-gray-400">(<b>Max. 20MB</b>)</p>
+                        <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                        </svg>
+                        <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> (or drag and drop).</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">(<b>Max. 20MB</b>)</p>
                       </div>
                       <input @change="parseUploadedFile" id="dropzone-file" type="file" class="hidden" accept=".fasta,.fa,.gb,.gnk,.sbol"/>
-                  </label>
-                </div>
-                
-                <span :class="{hidden: !filename}">
+                    </label>
+                  </div>
+
+                  <span :class="{hidden: !filename}">
                   <div class="w-full mt-4" id="file-control">
                       <p class="flex items-center justify-between"> <span class="inline-flex items-center justify-between"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.828 10h6.239m-6.239 4h6.239M6 1v4a1 1 0 0 1-1 1H1m14-4v16a.97.97 0 0 1-.933 1H1.933A.97.97 0 0 1 1 18V5.828a2 2 0 0 1 .586-1.414l2.828-2.828A2 2 0 0 1 5.828 1h8.239A.97.97 0 0 1 15 2Z"/>
@@ -120,7 +120,7 @@
                       </div>
                     </div>
                   </div>
-                  
+
                   <div class="w-full mt-4" id="sequence-selector">
                     <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white mb-4">Select your sequence</h5>
                     <button id="sequenceSearch" data-dropdown-toggle="sequenceSearchDropdown" data-dropdown-placement="bottom" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-between dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full" type="button"> {{ Object.keys(selectedSeqIDs).length > 0 ? `Selected ${Object.keys(selectedSeqIDs).length} sequence(s)` : 'Select sequence(s)' }} <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -140,16 +140,16 @@
                           </div>
                         </div>
                         <ul class="h-48 px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200 border-b border-gray-200" aria-labelledby="dropdownSearchButton">
-                          <li 
-                            v-for="sequence in filteredSequenceIDs"
-                            class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
+                          <li
+                              v-for="sequence in filteredSequenceIDs"
+                              class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
                           >
                             <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600" @click="toggleSelectSequence(sequence)">
                               <input @change="() => {return;}" :checked="!!selectedSeqIDs[sequence]" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                               <label class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">{{sequence}}</label>
                             </div>
                           </li>
-                          
+
                         </ul>
                         <div class="flex justify-between">
                           <a href="#" @click="updateSelectedIDs(true)" class="inline-flex items-center p-3 text-sm font-medium text-black hover:text-white dark:text-white dark:hover:text-white rounded-b-lg hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 hover:underline">
@@ -188,7 +188,7 @@
                     </div>
                   </div>
 
-                  <div class="w-full mt-4 flex justify-center">
+                  <!--div class="w-full mt-4 flex justify-center">
                     <div class="inline-flex rounded-md shadow-sm" role="group">
                       <button @click="annotateSequence" :disabled="!!modelError || !!loadingText || Object.keys(selectedSeqIDs).length != 1" type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-black bg-green-400 border border-gray-200 rounded-l-lg enabled:hover:bg-green-500 enabled:hover:text-black focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-green-700 dark:border-gray-600 dark:text-white enabled:dark:hover:text-white enabled:dark:hover:bg-green-600 dark:focus:ring-blue-500 dark:focus:text-white disabled:bg-green-600 disabled:dark:bg-green-800">
                         <svg class="w-3 h-3 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
@@ -196,7 +196,7 @@
                         </svg>
                         Annotate Sequence
                       </button>
-                      
+
                       <button  @click="annotateBatch" :disabled="!!modelError || !!loadingText || Object.keys(selectedSeqIDs).length < 2" type="button" class="inline-flex items-center px-4 py-2 text-sm font-medium text-black bg-green-400 border border-gray-200 rounded-r-md enabled:hover:bg-green-500 enabled:hover:text-black focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-green-700 dark:border-gray-600 dark:text-white enabled:dark:hover:text-white enabled:dark:hover:bg-green-600 dark:focus:ring-blue-500 dark:focus:text-white disabled:bg-green-600 disabled:dark:bg-green-800">
                         <svg class="w-3 h-3 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 20">
                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.041 11.862A5 5 0 0 1 11 15.831V19M1 1v3.169a5 5 0 0 0 1.891 3.916M11 1v3.169a5 5 0 0 1-2.428 4.288l-5.144 3.086A5 5 0 0 0 1 15.831V19M1 3h10M1.399 6h9.252M2 14h8.652M1 17h10"/>
@@ -204,45 +204,74 @@
                         Batch Annotate
                       </button>
                     </div>
-                  </div>
+                  </div-->
                 </span>
+                </div>
+
               </div>
-              
             </div>
-          </div>
-          
-          <div class="relative w-full mt-4 md:max-w-md p-4 bg-gray-200 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-            <div class="flex items-center justify-between mb-4">
-              <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Paste raw DNA sequence</h5>
+
+            <div class="flex items-center">
+              <div class="flex-grow border-t border-gray-400 dark:border-gray-200"></div>
+              <span class="flex-shrink mx-4 text-gray-400 dark:text-gray-200">OR</span>
+              <div class="flex-grow border-t border-gray-400 dark:border-gray-200"></div>
+            </div>
+
+            <div class="relative w-full md:max-w-md">
+              <div class="flex items-center justify-between mb-4">
+                <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Paste raw DNA sequence</h5>
                 <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500" data-tooltip-target="helpManualInputTooltip" data-tooltip-trigger="click" data-tooltip-placement="bottom">
-                    <p> Help</p>
+                  <p> Help</p>
                 </a>
                 <div id="helpManualInputTooltip" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-gray-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 w-60">
-                    <p>Paste the sequence in the TextBox and click 'Run RiboSense' to annotate the input sequence.</p>
+                  <p>Paste the sequence in the TextBox and click 'Run RiboSense' to annotate the input sequence.</p>
                 </div>
-            </div>
-            <div class="flex-root">              
-              <div class="flex items-center justify-center w-full flex-wrap gap-y-2">
-                    <div class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
-                        <div class="py-2 bg-white rounded-t-lg dark:bg-gray-800">
-                            <label for="comment" class="sr-only">Your comment</label>
-                            <textarea v-model="sequenceFromInput" id="comment" rows="4" class="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400" placeholder="ATGCATGCATGC..." required></textarea>
-                        </div>
-                        <div class="flex items-center justify-center px-3 py-2 border-t dark:border-gray-600">
-                          <button @click="annotateSequenceFromInput" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            <svg class="w-3.5 h-3.5 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 20">
-                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.041 11.862A5 5 0 0 1 11 15.831V19M1 1v3.169a5 5 0 0 0 1.891 3.916M11 1v3.169a5 5 0 0 1-2.428 4.288l-5.144 3.086A5 5 0 0 0 1 15.831V19M1 3h10M1.399 6h9.252M2 14h8.652M1 17h10"/>
-                            </svg>
-                            Run RiboSense
-                          </button>
-                        </div>
+              </div>
+              <div class="flex-root">
+                <div class="flex items-center justify-center w-full flex-wrap gap-y-2">
+                  <div class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+                    <div class="py-2 bg-white rounded-lg dark:bg-gray-800">
+                      <label for="comment" class="sr-only">Your comment</label>
+                      <textarea v-model="sequenceFromInput" id="comment" rows="4" class="w-full text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400" placeholder="ATGCATGCATGC..." required></textarea>
                     </div>
+                  </div>
+                </div>
               </div>
             </div>
+
+
+            <div class="flex items-center justify-center p-2">
+              <button @click="annotateSequenceFromInput" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <svg class="w-3.5 h-3.5 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 20">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.041 11.862A5 5 0 0 1 11 15.831V19M1 1v3.169a5 5 0 0 0 1.891 3.916M11 1v3.169a5 5 0 0 1-2.428 4.288l-5.144 3.086A5 5 0 0 0 1 15.831V19M1 3h10M1.399 6h9.252M2 14h8.652M1 17h10"/>
+                </svg>
+                Run RiboSense
+              </button>
+            </div>
           </div>
+
         </div>
-        <div ref='sequenceVisualizerElement' class="min-h-[34rem] max-h-[40rem] md:col-span-2 dark:text-white bg-gray-200 border border-gray-200 rounded-lg shadow sm:p-4 dark:bg-gray-400 dark:border-gray-700">
-          
+        <div class="md:col-span-2 dark:text-white bg-gray-200 border border-gray-200 rounded-lg shadow sm:p-4 dark:bg-gray-400 dark:border-gray-700 flex flex-col gap-2">
+          <div :class="{hidden: annotationResult.length < 1}" class="flex flex-col gap-2 items-center">
+            <p class="font-medium text-xl text-gray-900 dark:text-gray-800 text-center">Annotation Visualization</p>
+            <p class="font-medium text-sm text-gray-900 dark:text-gray-800 text-center">Annotation has completed, you can find the results below. </p>
+            <p class="font-medium text-sm text-white text-center px-4 py-1 rounded-lg w-fit" :class="annotRes ? ['bg-green-600'] : ['bg-red-600']">
+              Riboswitch
+              <span v-if="annotRes">
+                found: {{annotRes[0].name}}
+              </span>
+              <span v-else>
+                not found
+              </span>
+            </p>
+          </div>
+          <div ref='sequenceVisualizerElement' class="min-h-[34rem] max-h-[40rem]">
+
+          </div>
+
+          <div :class="{hidden: annotationResult.length < 1}" class="flex flex-col items-center gap-4">
+            <p class="font-medium text-sm text-gray-900 dark:text-gray-800 text-center">Find below the annotation results in detail, and to download the result as a .csv file</p>
+          </div>
         </div>
       </div>
 
@@ -366,6 +395,7 @@ const { downloadPredictionCSV } = useCSVDownloader()
 var SeqVizVisualizer = null
 const colorHash = new ColorHash()
 
+const annotRes = ref()
 const sequenceFromInput = ref()
 const sequenceVisualizerElement = ref()
 const errorText = ref('')
@@ -408,6 +438,7 @@ const parseUploadedFile = async (event) => {
     if (fileUploaded.size > 2e+7) {
       event.preventDefault()
       throw "File size is too big"
+      throw "File size is too big"
     }
 
     const parsedSequences = await anyToJson(fileUploaded)
@@ -423,7 +454,7 @@ const parseUploadedFile = async (event) => {
       }
     })
 
-    loadingText.value = ''
+    loadingText.value = null
     errorText.value = ''
     filename.value = fileUploaded.name
     updateSelectedIDs(false)
@@ -432,12 +463,12 @@ const parseUploadedFile = async (event) => {
 
   } catch (e) {
     console.log(e)
-    loadingText.value = ''
+    loadingText.value = null
     errorText.value = e
   }
 }
 const removeUploadedFile = () => {
-  loadingText.value = ''
+  loadingText.value = null
   availableSequences = {}
   errorText.value = ''
   filename.value = ''
@@ -489,6 +520,9 @@ const visualizeRiboswitch = (annotate_data, seq_data) => {
     )
   }
 
+
+  annotRes.value = annot
+
   SeqVizVisualizer.setState(
     {
       name,
@@ -497,6 +531,7 @@ const visualizeRiboswitch = (annotate_data, seq_data) => {
     }
   )
 }
+
 
 const getSequenceList = () => {
   return Object.keys(selectedSeqIDs).map(id => availableSequences[id])
@@ -525,7 +560,7 @@ const annotateListOfSequence = async (sequences, customInput) => {
   } catch (e) {
     errorText.value = typeof e == 'string' ? e : "There was an error processing the selected sequence(s)"
   } finally {
-    loadingText.value = ''
+    loadingText.value = null
   }
 }
 const annotateSequence = async () => {
@@ -539,7 +574,29 @@ const annotateBatch = async () => {
   loadingText.value = `Annotating ${sequences.length} sequences`
   await annotateListOfSequence(sequences)
 }
+
+
 const annotateSequenceFromInput = async () => {
+  try {
+    if (modelError.value) throw "Model unavailable"
+    else if (loadingText.value) return
+
+    annotRes.value = null
+
+    if (Object.keys(selectedSeqIDs).length === 1) {
+      return annotateSequence()
+    } else if (Object.keys(selectedSeqIDs).length > 1) {
+      return annotateBatch()
+    } else {
+      return annotateSequenceFromInput_()
+    }
+  } catch (e) {
+    errorText.value = "Unable to annotate sequence, check console for errors."
+    console.error("Unable to annotate", e)
+  }
+}
+
+const annotateSequenceFromInput_ = async () => {
   sequenceFromInput.value = (sequenceFromInput.value || '').trim().replace("\n", "").replace(" ", "")
 
   if (!sequenceFromInput.value) {
