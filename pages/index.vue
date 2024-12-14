@@ -9,7 +9,7 @@
             </svg>
             <span class="sr-only">Status</span>
             <div>
-              <span class="font-medium">Detecting and classifying riboswitches</span>
+              <span class="font-medium">DNA or RNA sequence(s) may be used</span>
                 <ul class="mt-1.5 ml-4 list-disc list-inside">
                   <li v-if="!!modelError" class="text-red-800 dark:text-red-400">
                     Annotation tool will not work, as there was an error loading the ML models.
@@ -33,7 +33,7 @@
                     </li>
                   </span>
                   <li v-else>
-                    Upload input file of sequence(s) OR enter a sequence string
+                    If working with DNA sequence(s), enter the reverse complement (- to +) of the coding strand
                   </li>
                   <li v-if="annotationResult.length > 0">
                     Annotated {{ annotationResult.length }} sequence(s)
@@ -253,8 +253,8 @@
         </div>
         <div class="md:col-span-2 dark:text-white bg-gray-200 border border-gray-200 rounded-lg shadow sm:p-4 dark:bg-gray-400 dark:border-gray-700 flex flex-col gap-2">
           <div :class="{hidden: annotationResult.length < 1}" class="flex flex-col gap-2 items-center">
-            <p class="font-medium text-xl text-gray-900 dark:text-gray-800 text-center">Annotation Visualization</p>
-            <p class="font-medium text-sm text-gray-900 dark:text-gray-800 text-center">Annotation has completed, you can find the results below. </p>
+            <p class="font-medium text-xl text-gray-900 dark:text-gray-800 text-center">Results</p>
+            <p class="font-medium text-sm text-gray-900 dark:text-gray-800 text-center"></p>
             <p class="font-medium text-sm text-white text-center px-4 py-1 rounded-lg w-fit" :class="annotRes ? ['bg-green-600'] : ['bg-red-600']">
               Riboswitch
               <span v-if="annotRes">
@@ -270,7 +270,7 @@
           </div>
 
           <div :class="{hidden: annotationResult.length < 1}" class="flex flex-col items-center gap-4">
-            <p class="font-medium text-sm text-gray-900 dark:text-gray-800 text-center">Find below the annotation results in detail, and to download the result as a .csv file</p>
+            <p class="font-medium text-sm text-gray-900 dark:text-gray-800 text-center">Detailed RiboSense results could be found below, with download options</p>
           </div>
         </div>
       </div>
@@ -278,13 +278,13 @@
       <div class="grid grid-cols-1 p-4" v-if="annotationResult.length > 0">
         <div class="inline-flex items-center justify-center w-full">
             <hr class="w-full h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
-            <span class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900"> Annotation Result </span>
+            <span class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900"> RiboSense Results </span>
         </div>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
               <caption class="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
-                  Riboswitch Annotations
-                  <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">You can visualize and analyze first 50 sequences input directly in your browser, for further analysis you can download a <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">.CSV</span>file containing the analysis result of all the selected sequences</p>
+                  
+                  <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">You can visualize and analyze first 50 sequences input directly in your browser, for further analysis you can download a <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">.CSV</span>file containing the analysis result of all the sequences</p>
               </caption>
               <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
